@@ -44,7 +44,7 @@
     }
 
     // 9. Redirige vers la page de liste des chauffeurs après l'enregistrement
-    header("Location:TODO_list.html");
+    header("Location:TODO_list.php");
     exit();
         //if (!$erreur) {
           //header("Location:creerChauffeur.php?saved=".$id);

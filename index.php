@@ -42,13 +42,13 @@ try {
 if ($requete->fetch(PDO::FETCH_ASSOC) != false) {
   $_SESSION['pseudo'] = $_POST['PseudoEtu'];
   $_SESSION['pass'] = $_POST['Password'];
+  header("Location:TODO_list.php");
+  exit();
 }else{
   print 'nous ne trouvons pas votre compte';
 }
 
 // 9. Redirige vers la page de liste des chauffeurs après l'enregistrement
-header("Location:TODO_list.php");
-exit();
     //if (!$erreur) {
       //header("Location:creerChauffeur.php?saved=".$id);
       //exit();
