@@ -8,8 +8,6 @@ if (isset($_SESSION['pseudo'])) {
 }
 
  ?>
-
- <a href="deconnexion.php">Je me déconnecte</a>
 <!DOCTYPE html>
 <html>
 
@@ -24,8 +22,9 @@ if (isset($_SESSION['pseudo'])) {
         <h1>DOOMMI</h1>
     </div>
 
-<div class="list">
+    <a href="deconnexion.php" style="color: black;">Je me déconnecte</a>
 
+<div class="list">
 
 
     <ul id="myUL">
@@ -49,12 +48,6 @@ if (isset($_SESSION['pseudo'])) {
 </div>
 
   </body>
-
-
-
-
-
-
 
   <script type="text/javascript">
     // Create a "close" button and append it to each list item

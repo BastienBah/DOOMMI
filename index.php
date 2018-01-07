@@ -45,7 +45,7 @@ if ($requete->fetch(PDO::FETCH_ASSOC) != false) {
   header("Location:TODO_list.php");
   exit();
 }else{
-  print 'nous ne trouvons pas votre compte';
+  print 'Nous ne trouvons pas votre compte';
 }
 
 // 9. Redirige vers la page de liste des chauffeurs après l'enregistrement
@@ -63,8 +63,11 @@ if ($requete->fetch(PDO::FETCH_ASSOC) != false) {
     <link rel="stylesheet" href="assets/style/style.css">
     <title></title>
   </head>
-  <body>
-			<h1>Formulaire de connexion</h1>
+  <body class="index">
+    <div id="myDIV" class="header">
+      <h1>Formulaire de connexion</h1>
+    </div>
+
 
       <form method="post" action="index.php" class="form-horizontal">
 
@@ -107,9 +110,11 @@ if ($requete->fetch(PDO::FETCH_ASSOC) != false) {
               </div>
           </div>
 
+          <a href="inscription.php" style="color: black;">Je m'inscris</a>
+
       </form>
 
-        <footer>
+        <footer class="footer">
           <p>&copy; DOOMMI 2018</p>
         </footer>
 
