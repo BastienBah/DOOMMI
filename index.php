@@ -28,7 +28,7 @@ $PseudoEtu = htmlspecialchars($_POST["PseudoEtu"]);
 $Password = htmlspecialchars($_POST["Password"]);
 // Réquête préparée INSERT INTO ETUDIANT
 try {
-  $requete = $pdo->prepare("SELECT (PseudoEtu, Password) FROM ETUDIANT WHERE (:PseudoEtu.'= $PseudoEtu'. AND :Password .'= $Password'.)");
+  $requete = $pdo->prepare("SELECT * FROM ETUDIANT WHERE PseudoEtu = :PseudoEtu AND Password = :Password");
   $requete->execute(array('PseudoEtu' => $PseudoEtu ,
                           'Password' => $Password
                           )
@@ -39,9 +39,15 @@ try {
   $erreur = true;
   $errSaisies =  "Erreur, la saisie est obligatoire !";
 }
+if ($requete->fetch(PDO::FETCH_ASSOC) != false) {
+  $_SESSION['pseudo'] = $_POST['PseudoEtu'];
+  $_SESSION['pass'] = $_POST['Password'];
+}else{
+  print 'nous ne trouvons pas votre compte';
+}
 
 // 9. Redirige vers la page de liste des chauffeurs après l'enregistrement
-header("Location:TODO_list.html");
+header("Location:TODO_list.php");
 exit();
     //if (!$erreur) {
       //header("Location:creerChauffeur.php?saved=".$id);
@@ -60,7 +66,7 @@ exit();
   <body>
 			<h1>Formulaire de connexion</h1>
 
-      <form method="post" action="inscription.php" class="form-horizontal">
+      <form method="post" action="index.php" class="form-horizontal">
 
           <div class="control-group">
               <label class="control-label" for="PseudoEtu"></label>
